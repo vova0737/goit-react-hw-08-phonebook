@@ -1,29 +1,55 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, Suspense, lazy } from 'react';
+import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import AppBar from './Components/AppBar';
 import Container from './Components/Container/Container';
-import Title from './Components/Title/Title';
-import ContactForm from './Components/ContactForm/ContactForm';
-import ContactList from './Components/ContactList/ContactList';
-import Filter from './Components/Filter/Filter';
+import authOperations from './redux/auth/auth-operations';
+import PrivateRoute from './Components/PrivateRoute';
+import PublicRoute from './Components/PublicRoute';
 
-const App = ({ contacts }) => {
-  return (
-    <Container>
-      <Title />
-      <ContactForm />
-      <Filter />
-      <ContactList />
-    </Container>
-  );
+const HomeView = lazy(() => import('./views/HomeView'));
+const RegisterView = lazy(() => import('./views/RegisterView'));
+const LoginView = lazy(() => import('./views/LoginView'));
+const PhonebookView = lazy(() => import('./views/PhonebookView'));
+
+class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
+
+  render() {
+    return (
+      <Container>
+        <AppBar />
+        <Suspense fallback={<p>Loading...</p>}>
+          <Switch>
+            <PublicRoute exact path="/" component={HomeView} />
+            <PublicRoute
+              path="/register"
+              redirectTo="/contacts"
+              restricted
+              component={RegisterView}
+            />
+            <PublicRoute
+              path="/login"
+              redirectTo="/contacts"
+              restricted
+              component={LoginView}
+            />
+            <PrivateRoute
+              path="/contacts"
+              component={PhonebookView}
+              redirectTo="/login"
+            />
+          </Switch>
+        </Suspense>
+      </Container>
+    );
+  }
+}
+
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
 };
 
-App.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object),
-};
-
-const mapStateToProps = (state) => ({
-  contacts: state.phoneBook.contacts,
-});
-
-export default connect(mapStateToProps, null)(App);
+export default connect(null, mapDispatchToProps)(App);
