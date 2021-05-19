@@ -34,7 +34,7 @@
   margin-right: 10px;
   font-family: Roboto, sans-serif;
   background-color: transparent;
-  border: 1px solid rgb(180, 201, 179);;
+  border: 1px solid rgb(180, 201, 179);
   border-radius: 5px;
   transition: background-color 250ms ease;
   cursor: pointer;
@@ -42,5 +42,5 @@
 
 .btn:hover,
 .btn:focus {
-  background-color: rgb(180, 201, 179);;
+  background-color: rgb(180, 201, 179);
 }

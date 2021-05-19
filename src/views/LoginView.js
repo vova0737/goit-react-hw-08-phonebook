@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
 import authSelectors from '../redux/auth/auth-selectors';
 
-class LoginPage extends Component {
+class LoginView extends Component {
   static propTypes = {
     error: PropTypes.string,
     isLoadingAuth: PropTypes.bool,
@@ -74,4 +74,4 @@ const mapDispatchToProps = {
   onLogin: authOperations.logIn,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginView);

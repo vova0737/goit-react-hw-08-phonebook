@@ -7,47 +7,39 @@ ul {
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: black;
+  color: rgb(10, 51, 26);
 }
 
 .NavLink--active {
-  color: red;
+  text-decoration: underline 2px;
+  color: rgb(10, 51, 26);
 }
 
-.HPcontainer {
+.MessageContainer {
   display: flex;
   flex-direction: column;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 10px 45px;
   margin-bottom: 20px;
   border-radius: 2px;
-  background-color: white;
-
-  /* @media screen and (min-width: 601px) {
-    padding: 20px 65px;
-  } */
+  background-color: rgb(222, 241, 223);
 }
 
 .Form {
   display: flex;
   flex-direction: column;
+  background-color: rgb(222, 241, 223);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  padding: 10px 45px;
+  padding: 20px 45px;
   margin-bottom: 20px;
   border-radius: 2px;
-  background-color: white;
-
-  /* @media screen and (min-width: 601px) {
-    padding: 20px 65px;
-  } */
 }
 
 .Label {
   margin-bottom: 5px;
+  font-weight: 700;
+  color: rgb(10, 51, 26);
 
-  /* @media screen and (max-width: 600px) {
-    font-size: 12px;
-  } */
 }
 
 .Input {
@@ -56,28 +48,31 @@ ul {
   outline: none;
   border: 1px solid black;
   border-radius: 2px;
+  font-size: 20px;
 }
 
 .Input:hover,
 .Input:focus {
-  border: 1px solid blue;
+  border: 1px solid rgb(10, 51, 26);
   outline: none;
 }
 
 .Button {
   cursor: pointer;
   padding: 8px 15px;
-  background-color: blue;
-  color: white;
+  background-color: rgba(180, 201, 179, 0.486);
+  color:rgb(10, 51, 26);
   border: none;
   border-radius: 2px;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 .Button:hover,
 .Button:focus {
-  background-color: orange;
+  background-color: rgba(181, 212, 190, 0.753);
 }
 
-.Title {
-  color: blue;
+.Greeting {
+  color:rgb(10, 51, 26);
 }

@@ -1,19 +1,16 @@
 import React from 'react';
 
-const HomePage = () => {
+const HomeView = () => {
   return (
     <>
-        <h1 className="Title">
-          Hello
-          <span role="img" aria-label="Иконка приветствия">
-            👋
-          </span>
-        </h1>
-      <div className="HPcontainer">
+      <h1 className="Greeting">
+          Hello user
+      </h1>
+      <div className="MessageContainer">
         <h2>Log in, please</h2>
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default HomeView;
